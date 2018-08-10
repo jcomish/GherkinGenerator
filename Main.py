@@ -1,6 +1,7 @@
 from GherkinPage import GherkinPage
 from Scenario import Scenario
 from Step import Step
+import json
 import jsonpickle
 
 def getJSON():
