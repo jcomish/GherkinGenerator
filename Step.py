@@ -1,3 +1,6 @@
+import re
+
+
 class Step:
     type = ""
     label = ""
@@ -12,12 +15,5 @@ class Step:
         return "  " + self.type + " " + self.label + "\n"
 
     def get_keyword(self):
-        i = 0
-        j = 0
-        for i in range(0, len(self.label)):
-            if self.label[i] == "<":
-                for j in range(i, len(self.label)):
-                    if self.label[j] == ">":
-                        break
-                break
-        return self.label[i + 1:j]
+        regex = re.search(r'(?<=<).*(?=>)', self.label, re.I)
+        return regex.group()
