@@ -1,6 +1,6 @@
 import json
 from allpairspy import AllPairs
-from GherkinPage import GherkinPage
+from AutomationGenerator import AutomationGenerator
 from Scenario import Scenario
 from Step import Step
 
@@ -8,7 +8,7 @@ from Step import Step
 class TestCaseGenerator:
     cases = []
     element_expands = []
-    raw_test = GherkinPage()
+    raw_test = AutomationGenerator(feature_name="Sample", tags="@test")
 
     def __init__(self, tests_input_string):
         if TestCaseGenerator.__is_json(tests_input_string):
@@ -26,7 +26,7 @@ class TestCaseGenerator:
             case.add_expands(pair)
             self.cases.append(case)
         self.__update_raw_tests()
-        self.raw_test.compile_gherkin()
+        self.raw_test.generate_fitv_project()
         return self.raw_test
 
     def __make_element_expands(self):
