@@ -7,6 +7,7 @@ from Step import Step
 FEATURE_NAME = "Sample"
 X_PATH = "//*"
 
+
 class TestCaseGenerator:
     cases = []
     element_expands = []
@@ -39,7 +40,8 @@ class TestCaseGenerator:
         self.raw_test.scenarios.append(Scenario(url="http://127.0.0.1:5000/", feature_name="Sample", text="Example test scenario"))
         for choice in self.cases[0].selected_expands:
             self.raw_test.scenarios[0].steps.append(
-                Step(step_type="Given", feature_name=FEATURE_NAME, x_path="", input_type="text", cases=[],
+                Step(step_type="Given", feature_name=FEATURE_NAME, x_path=choice.parent.xpath,
+                     input_type=choice.parent.input_type, cases=[],
                      label="Element " + choice.parent.name + " has value <choice{}>".format(choice.parent.id)))
 
         for case in self.cases:
