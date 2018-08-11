@@ -1,0 +1,28 @@
+FITV_METHOD_MAP = {
+    "text": ("type_text", ("v1"), "Basic"),
+    "textarea": ("type_text", ("v1"), "Basic"),
+    "button": ("activate_element", ("v1"), "Basic"),
+    "checkbox": (None, (None), None),
+    "color": (None, (None), None),
+    "date": (None, (None), None),
+    "datetime-local": (None, (None)),
+    "email": (None, (None), None),
+    "file": (None, (None), None),
+    "hidden": (None, (None), None),
+    "image": (None, (None), None),
+    "month": (None, (None), None),
+    "number": (None, (None), None),
+    "password": (None, (None), None),
+    "radio": (None, (None), None),
+    "range": (None, (None), None),
+    "reset": (None, (None), None),
+    "search": (None, (None), None),
+    "submit": ("activate_element", ("v1"), "Basic"),
+    "tel": (None, (None), None),
+    "time": (None, (None), None),
+    "url": (None, (None), None),
+    "week": (None, (None), None),
+    "select": ("select_options", ("v1"), "Basic"),
+    "multiselect": ("select_options", ("v1"), "Basic")
+
+}

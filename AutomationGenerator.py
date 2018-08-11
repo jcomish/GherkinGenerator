@@ -17,6 +17,7 @@ class AutomationGenerator:
         self.feature_name = feature_name
         self.feature_as = feature_as
         self.feature_outcome = feature_outcome
+        self.feature_action = feature_action
         self.tags = tags
 
     def __str__(self):
@@ -106,5 +107,11 @@ class AutomationGenerator:
         self.write_static_files()
         self.compile_gherkin()
         self.write_step_file()
+
+        for scenario in self.scenarios:
+            scenario.write_page_object(Path(self.outputLocation / "PageObjects" / (scenario.feature_name + ".py")))
+
+        for scenario in self.scenarios:
+            scenario.write_steps(Path(self.outputLocation / "features" / (scenario.feature_name + ".py")))
 
 

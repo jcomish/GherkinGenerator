@@ -4,6 +4,8 @@ from AutomationGenerator import AutomationGenerator
 from Scenario import Scenario
 from Step import Step
 
+FEATURE_NAME = "Sample"
+X_PATH = "//*"
 
 class TestCaseGenerator:
     cases = []
@@ -34,11 +36,12 @@ class TestCaseGenerator:
             self.element_expands.append(self.elements[i].expands)
 
     def __update_raw_tests(self):
-        self.raw_test.scenarios.append(Scenario(text="Example test scenario"))
+        self.raw_test.scenarios.append(Scenario(url="http://127.0.0.1:5000/", feature_name="Sample", text="Example test scenario"))
         for choice in self.cases[0].selected_expands:
             self.raw_test.scenarios[0].steps.append(
-                Step(type="Given",
+                Step(step_type="Given", feature_name=FEATURE_NAME, x_path="", input_type="text", cases=[],
                      label="Element " + choice.parent.name + " has value <choice{}>".format(choice.parent.id)))
+
         for case in self.cases:
             for i, choice in enumerate(case.selected_expands):
                 self.raw_test.scenarios[0].steps[i].cases.append(choice.choice)

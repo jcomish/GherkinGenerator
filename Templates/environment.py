@@ -17,7 +17,7 @@ def after_feature(context, feature):
 
 
 def before_all(context):
-    Fitv.browser_pool = BrowserPool(context._runner.features, Settings.MaxThreads, path=Settings.DriverPath)
+    Fitv.browser_pool = BrowserPool(context._runner.features, settings.MaxThreads, path=settings.DriverPath)
 
 
 def after_all(context):
