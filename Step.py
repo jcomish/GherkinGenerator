@@ -30,35 +30,60 @@ class Step:
             raise ValueError("Label MUST contain a keyword ex:(\"<example>\"")
 
     def write_page_object_locator(self, path):
-        output_string = ("    " + self.input_type.upper() + "_" + self.keyword.upper() + " = " )
-        if self.x_path:
-            output_string += ("\"" + self.x_path + "\"")
-        else:
-            output_string += ("\"*\"")
+        output_string = ""
+        overwrite = True
+        if path.exists():
+            r = open(path, 'r')
+            r = r.readlines()
+            if self.input_type.upper() + "_" + self.keyword.upper() in "\n".join(r):
+                overwrite = False
 
-        return output_string + "\n"
-
-    def write_page_object_method(self, path):
-        output_string = "    def interact_" + self.keyword + "(self, " + self.keyword + "):\n" + \
-                          "        " + FITV_METHOD_MAP[self.input_type][2] + "." + FITV_METHOD_MAP[self.input_type][0] + \
-                            "(self." + self.input_type.upper() + "_" + self.keyword.upper() + \
-                          ", " + self.keyword
-        # TODO: Expand prev line to support multiple args
-        if self.keyword == "select" or self.keyword == "mselect":
-            output_string += ".split(',')"
-
-        output_string += ")\n"
+        if overwrite:
+            if self.x_path:
+                output_string += ("    " + self.input_type.upper() + "_" + self.keyword.upper() + " = " ) + ("\"" + self.x_path + "\"") + "\n"
+            else:
+                output_string += ("    " + self.input_type.upper() + "_" + self.keyword.upper() + " = " ) + ("\"*\"") + "\n"
 
         return output_string
 
+    def write_page_object_method(self, path):
+        output_string = ""
+        overwrite = True
+        if path.exists():
+            r = open(path, 'r')
+            r = r.readlines()
+            if self.input_type.upper() + "_" + self.keyword.upper() in "\n".join(r):
+                overwrite = False
+
+        if overwrite:
+            output_string += "    def interact_" + self.keyword + "(self, " + self.keyword + "):\n" + \
+                              "        " + FITV_METHOD_MAP[self.input_type][2] + "." + FITV_METHOD_MAP[self.input_type][0] + \
+                                "(self." + self.input_type.upper() + "_" + self.keyword.upper() + \
+                              ", " + self.keyword
+            # TODO: Expand prev line to support multiple args
+            if self.keyword == "select" or self.keyword == "mselect":
+                output_string += ".split(',')"
+
+            output_string += ")\n\n"
+
+        return output_string
 
 
     def write_step(self, path):
         tempLabel = self.label.replace('<', '{')
         tempLabel = tempLabel.replace('>', '}')
-        output_string = ("@" + self.step_type + "('" + tempLabel + "')\n" +
-                          "def step_impl(" + "context, " + self.keyword + "):\n" +
-                          "\tinteract_" + self.keyword + "(" + self.keyword + ")\n"
-                          )
+        output_string = ""
+        overwrite = True
+        if path.exists():
+            r = open(path, 'r')
+            r = r.readlines()
+            if "@" + self.step_type + "('" + tempLabel + "')\n" in "\n".join(r):
+                overwrite = False
+
+        if overwrite:
+            output_string = ("@" + self.step_type + "('" + tempLabel + "')\n" +
+                              "def step_impl(" + "context, " + self.keyword + "):\n" +
+                              "    interact_" + self.keyword + "(" + self.keyword + ")\n"
+                              )
 
         return output_string
