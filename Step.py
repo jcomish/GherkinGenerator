@@ -15,5 +15,5 @@ class Step:
         return "  " + self.type + " " + self.label + "\n"
 
     def get_keyword(self):
-        regex = re.search(r'(?<=<).*(?=>)', self.label, re.I)
+        regex = re.search(r'(?<=<)[^>]*(?=>)', self.label, re.I)
         return regex.group()
