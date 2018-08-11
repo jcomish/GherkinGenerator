@@ -35,14 +35,14 @@ class TestCaseGenerator:
 
     def __update_raw_tests(self):
         self.raw_test.scenarios.append(Scenario(text="Example test scenario"))
-        for choice in self.cases[0].selected_expands:
+        for expand in self.cases[0].selected_expands:
             self.raw_test.scenarios[0].steps.append(
                 Step(type="Given",
-                     label="Element " + choice.parent.name + " has value <choice{}>".format(choice.parent.id)))
-        for case in self.cases:
-            for i, choice in enumerate(case.selected_expands):
-                self.raw_test.scenarios[0].steps[i].cases.append(choice.choice)
-
+                     label="Element " + expand.parent.name + " has value <choice{}>".format(expand.parent.id),
+                     cases=[]))
+        for i, step in enumerate(self.raw_test.scenarios[0].steps):
+            for case in self.cases:
+                step.cases.append(case.selected_expands[i].choice)
 
     @staticmethod
     def __is_json(json_string):
