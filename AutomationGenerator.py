@@ -13,8 +13,7 @@ class AutomationGenerator:
 
     scenarios = []
 
-    def __init__(self, feature_name, feature_as="", feature_action="", feature_outcome="", tags=tags):
-        self.feature_name = feature_name
+    def __init__(self, feature_as="", feature_action="", feature_outcome="", tags=tags):
         self.feature_as = feature_as
         self.feature_outcome = feature_outcome
         self.feature_action = feature_action
