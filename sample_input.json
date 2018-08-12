@@ -1,90 +1,93 @@
 [
   {
-    "feature_settings":[
+    "feature_settings": [
       {
-        "feature_name":"tet",
-        "start_loc":"test"
+        "feature_name": "tet",
+        "start_loc": "test"
       }
     ],
-    "testinputs":[
+    "testinputs": [
       {
-        "order":0,
-        "name":"name0",
-        "xpath":"path 0",
-        "inputType":"button",
-        "expand":[
+        "order": 0,
+        "name": "Text",
+        "xpath": "/html/body/form/input",
+        "inputType": "text",
+        "expand": [
           {
-            "id":1,
-            "choice":"test1"
+            "id": "autovalue-1533872198552",
+            "choice": "Test1"
           },
           {
-            "id":2,
-            "choice":"test2"
-          }
-        ],
-        "step_type":"Given"
-      },
-      {
-        "order":1,
-        "name":"name1",
-        "xpath":"path 1",
-        "inputType":"text",
-        "expand":[
-          {
-            "id":1,
-            "choice":"test1"
-          },
-          {
-            "id":2,
-            "choice":"test2"
+            "id": "autovalue-1533872203051",
+            "choice": "Test2"
           }
         ]
       },
       {
-        "order":2,
-        "name":"name2",
-        "xpath":"path 2",
-        "inputType":"textarea",
-        "expand":[
+        "order": 1,
+        "name": "Select",
+        "xpath": "/html/body/form/select[1]",
+        "inputType": "select",
+        "expand": [
           {
-            "id":1,
-            "choice":"test1"
+            "id": "autovalue-1533872275651",
+            "choice": "volvo"
           },
           {
-            "id":2,
-            "choice":"test2"
+            "id": "autovalue-1533872280844",
+            "choice": "saab"
+          },
+          {
+            "id": "autovalue-1533872285943",
+            "choice": "fiat"
+          },
+          {
+            "id": "autovalue-1533872291202",
+            "choice": "audi"
           }
         ]
       },
       {
-        "order":3,
-        "name":"name3",
-        "xpath":"path 3",
-        "inputType":"select",
-        "expand":[
+        "order": 2,
+        "name": "Multiselect",
+        "xpath": "/html/body/form/select[2]",
+        "inputType": "multiselect",
+        "expand": [
           {
-            "id":1,
-            "choice":"test1"
+            "id": "autovalue-1533872358450",
+            "choice": "volvo,saab"
           },
           {
-            "id":2,
-            "choice":"test2"
+            "id": "autovalue-1533872367477",
+            "choice": "saab,fiat"
+          },
+          {
+            "id": "autovalue-1533872382015",
+            "choice": "saab,audi,fiat,volvo"
           }
         ]
       },
       {
-        "order":4,
-        "name":"name4",
-        "xpath":"path 4",
-        "inputType":"text",
-        "expand":[
+        "order": 3,
+        "name": "Textarea",
+        "xpath": "/html/body/form/textarea",
+        "inputType": "text",
+        "expand": [
           {
-            "id":1,
-            "choice":"test1"
-          },
+            "id": "autovalue-1533872542118",
+            "choice": "This is a textarea test. It is a longer string."
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "name": "Button",
+        "xpath": "/html/body/form/button",
+        "inputType": "button",
+        "expand": [
           {
-            "id":2,
-            "choice":"test2"
+            "id": "autovalue-1533873003702",
+            "choice": "Click Me!"
           }
         ]
       }
