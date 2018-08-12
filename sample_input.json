@@ -1,101 +1,92 @@
 [
   {
-    "id":1,
-    "name":"name1",
-    "xpath":"path 1",
-    "inputType":"text",
-    "expand":[
+    "feature_settings":[
       {
-        "id":0,
-        "choice":"t0"
+        "feature_name":"tet",
+        "start_loc":"test"
       }
-    ]
-  },
-  {
-    "id":2,
-    "name":"name2",
-    "xpath":"path 2",
-    "inputType":"text",
-    "expand":[
+    ],
+    "testinputs":[
       {
-        "id":0,
-        "choice":"t0"
+        "order":0,
+        "name":"name0",
+        "xpath":"path 0",
+        "inputType":"button",
+        "expand":[
+          {
+            "id":1,
+            "choice":"test1"
+          },
+          {
+            "id":2,
+            "choice":"test2"
+          }
+        ],
+        "step_type":"Given"
       },
       {
-        "id":1,
-        "choice":"t1"
-      }
-    ]
-  },
-  {
-    "id":3,
-    "name":"name3",
-    "xpath":"path 3",
-    "inputType":"text",
-    "expand":[
-      {
-        "id":0,
-        "choice":"t0"
+        "order":1,
+        "name":"name1",
+        "xpath":"path 1",
+        "inputType":"text",
+        "expand":[
+          {
+            "id":1,
+            "choice":"test1"
+          },
+          {
+            "id":2,
+            "choice":"test2"
+          }
+        ]
       },
       {
-        "id":1,
-        "choice":"t1"
+        "order":2,
+        "name":"name2",
+        "xpath":"path 2",
+        "inputType":"textarea",
+        "expand":[
+          {
+            "id":1,
+            "choice":"test1"
+          },
+          {
+            "id":2,
+            "choice":"test2"
+          }
+        ]
       },
       {
-        "id":2,
-        "choice":"t2"
-      }
-    ]
-  },
-  {
-    "id":4,
-    "name":"name4",
-    "xpath":"path 4",
-    "inputType":"text",
-    "expand":[
-      {
-        "id":0,
-        "choice":"t0"
+        "order":3,
+        "name":"name3",
+        "xpath":"path 3",
+        "inputType":"select",
+        "expand":[
+          {
+            "id":1,
+            "choice":"test1"
+          },
+          {
+            "id":2,
+            "choice":"test2"
+          }
+        ]
       },
       {
-        "id":1,
-        "choice":"t1"
-      },
-      {
-        "id":2,
-        "choice":"t2"
-      },
-      {
-        "id":3,
-        "choice":"t3"
-      }
-    ]
-  },
-  {
-    "id":5,
-    "name":"name5",
-    "xpath":"path 5",
-    "inputType":"text",
-    "expand":[
-      {
-        "id":0,
-        "choice":"t0"
-      },
-      {
-        "id":1,
-        "choice":"t1"
-      },
-      {
-        "id":2,
-        "choice":"t2"
-      },
-      {
-        "id":3,
-        "choice":"t3"
-      },
-      {
-        "id":4,
-        "choice":"t4"
+        "order":4,
+        "name":"name4",
+        "xpath":"path 4",
+        "inputType":"text",
+        "expand":[
+          {
+            "id":1,
+            "choice":"test1"
+          },
+          {
+            "id":2,
+            "choice":"test2"
+          }
+        ]
       }
     ]
   }

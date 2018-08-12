@@ -11,6 +11,7 @@ class TestCaseGenerator:
     raw_test = AutomationGenerator(tags="@test")
 
     def __init__(self, tests_input_string):
+        self.__all_inputs = None
         if TestCaseGenerator.__is_json(tests_input_string):
             self.__all_inputs = json.loads(tests_input_string)
         if self.__all_inputs is None:
@@ -46,7 +47,6 @@ class TestCaseGenerator:
         for case in self.cases:
             for i, choice in enumerate(case.selected_expands):
                 self.raw_test.scenarios[0].steps[i].cases.append(choice.choice)
-
 
     @staticmethod
     def __is_json(json_string):
