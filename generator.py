@@ -40,7 +40,7 @@ class TestCaseGenerator:
         self.raw_test.scenarios.append(Scenario(url=self.url, feature_name=self.feature_name, text="Example test scenario"))
         for choice in self.cases[0].selected_expands:
             self.raw_test.scenarios[0].steps.append(
-                Step(step_type="Given", feature_name=self.feature_name, x_path=choice.parent.xpath,
+                Step(step_type=choice.parent.step_type, feature_name=self.feature_name, x_path=choice.parent.xpath,
                      input_type=choice.parent.input_type, cases=[],
                      label="Element " + choice.parent.name + " has value <choice{}>".format(choice.parent.id)))
 

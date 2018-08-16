@@ -1,6 +1,6 @@
 from Fitv.BrowserPool import BrowserPool
 import Fitv
-import settings
+from .settings import *
 
 
 def before_step(context, step):
@@ -17,7 +17,7 @@ def after_feature(context, feature):
 
 
 def before_all(context):
-    Fitv.browser_pool = BrowserPool(context._runner.features, settings.MaxThreads, path=settings.DriverPath)
+    Fitv.browser_pool = BrowserPool(context._runner.features, MaxThreads, path=DriverPath)
 
 
 def after_all(context):

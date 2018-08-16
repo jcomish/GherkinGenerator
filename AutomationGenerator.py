@@ -88,7 +88,7 @@ class AutomationGenerator:
 
 
     def write_step_file(self, overwrite=True):
-        file_path = self.outputLocation / "features" / (self.feature_name + ".feature")
+        file_path = self.outputLocation / "features" / (self.scenarios[0].feature_name + ".feature")
 
         if overwrite:
             with file_path.open("w", encoding="utf-8") as f:
